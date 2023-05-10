@@ -2,10 +2,6 @@ import os
 from tkinter import *
 from tkinter import ttk
 
-from main.templates.PY.controller import controllerCheckCMD
-from main.templates.PY.model import modelsCheckCMD
-from main.templates.PY.policy import policiesCheckCMD
-
 root = Tk()
 root.geometry("500x800")
 root.title("Abdulkadir LEVENT Laravel Module Generator")
@@ -164,29 +160,35 @@ migrate_check.place(x=120, y=240)
 
 
 def createCMD():
+
     print('Start Create')
     # Generate MODEL
     if model_check_val.get():
+        from main.templates.PY.model import modelsCheckCMD
         modelsCheckCMD(modul_name_var.get())
     else:
         remove_folder("Models")
     # Generate RESOURCES
     if resource_check_val.get():
+        from main.templates.PY.policy import policiesCheckCMD
         policiesCheckCMD(modul_name_var.get())
     else:
         remove_folder("Resources")
     # Generate REQUEST
     if request_check_val.get():
+        from main.templates.PY.policy import policiesCheckCMD
         policiesCheckCMD(modul_name_var.get())
     else:
         remove_folder("Request")
     # Generate POLICIES
     if policies_check_val.get():
+        from main.templates.PY.policy import policiesCheckCMD
         policiesCheckCMD(modul_name_var.get())
     else:
         remove_folder("Policies")
     # Generate CONTROLLER
     if controller_check_val.get():
+        from main.templates.PY.controller import controllerCheckCMD
         controllerCheckCMD(modul_name_var.get())
     else:
         remove_folder("Controllers")
